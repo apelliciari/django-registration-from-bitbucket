@@ -83,11 +83,11 @@ def activate(request, backend,
             return redirect(to, *args, **kwargs)
         else:
             return redirect(success_url)
-
-    # at this time, activation is failed
-    # if an error_url is passed, redirect to it
-    if error_url:
-        return redirect(error_url)
+    else:
+        # at this time, activation is failed
+        # if an error_url is passed, redirect to it
+        if error_url:
+            return redirect(error_url)
 
 
     if extra_context is None:
